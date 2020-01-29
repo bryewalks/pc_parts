@@ -6,7 +6,7 @@ module PcParts
       context "when parts given" do
         let(:computer) { Computer.new(
                                       "bryes pc",
-                                      case: "new case",
+                                      tower: "new tower",
                                       motherboard: "new motherboard",
                                       cpu: "new cpu",
                                       cpu_cooler: "new cpu cooler",
@@ -20,8 +20,8 @@ module PcParts
           expect(computer.name).to eq("bryes pc")
         end
 
-        it "initializes with correct case" do
-          expect(computer.case).to eq("new case")
+        it "initializes with correct tower" do
+          expect(computer.tower).to eq("new tower")
         end
 
         it "initializes with correct mother board" do
@@ -56,8 +56,8 @@ module PcParts
       context "when no parts given" do
         let(:computer) { Computer.new("bryes pc") }
 
-        it "initializes with no case" do
-          expect(computer.case).to eq(nil)
+        it "initializes with no tower" do
+          expect(computer.tower).to eq(nil)
         end
 
         it "initializes with no mother board" do

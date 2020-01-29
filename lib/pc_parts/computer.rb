@@ -1,10 +1,10 @@
 module PcParts
   class Computer
-    attr_accessor :name, :case, :motherboard, :memory, :cpu, :cpu_cooler, :gpu, :power_supply, :storage
+    attr_accessor :name, :tower, :motherboard, :memory, :cpu, :cpu_cooler, :gpu, :power_supply, :storage
 
     def initialize(name, parts = {})
       @name         = name
-      @case         = parts[:case]
+      @tower        = parts[:tower]
       @motherboard  = parts[:motherboard]
       @cpu          = parts[:cpu]
       @cpu_cooler   = parts[:cpu_cooler]
