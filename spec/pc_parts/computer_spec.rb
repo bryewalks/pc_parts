@@ -92,7 +92,7 @@ module PcParts
     end
   end
 
-  describe "compatible_cpu?" do
+  describe "#compatible_cpu?" do
 
     let(:computer) {Computer.new(name: "test computer")}
 
@@ -116,6 +116,12 @@ module PcParts
       it "returns false" do
         expect(computer.compatible_cpu?).to eq(false)
       end
+    end
+  end
+
+  describe "#total_price" do
+    it "returns the total price of all parts" do
+      expect(compter.total_price).to eq(100)
     end
   end
 end

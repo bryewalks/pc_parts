@@ -17,5 +17,9 @@ module PcParts
     def compatible_cpu?
       motherboard.socket_type == cpu.socket_type
     end
+
+    def total_price
+      #add up price of each part
+    end
   end
 end
