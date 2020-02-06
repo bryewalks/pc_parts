@@ -91,4 +91,31 @@ module PcParts
       end
     end
   end
+
+  describe "compatible_cpu?" do
+
+    let(:computer) {Computer.new(name: "test computer")}
+
+    context "when compatible" do
+      before do
+        computer.cpu = Cpu.new(socket_type: "AM4")
+        computer.motherboard = Motherboard.new(socket_type: "AM4")
+      end
+
+      it "returns true" do
+        expect(computer.compatible_cpu?).to eq(true)
+      end
+    end
+
+    context "when not compatible" do
+      before do
+        computer.cpu = Cpu.new(socket_type: "AM4")
+        computer.motherboard = Motherboard.new(socket_type: "LGA1151")
+      end
+
+      it "returns false" do
+        expect(computer.compatible_cpu?).to eq(false)
+      end
+    end
+  end
 end

@@ -13,5 +13,9 @@ module PcParts
       @storage      = parts[:storage]
       @power_supply = parts[:power_supply]
     end
+
+    def compatible_cpu?
+      motherboard.socket_type == cpu.socket_type
+    end
   end
 end
