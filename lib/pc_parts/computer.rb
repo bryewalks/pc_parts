@@ -24,6 +24,16 @@ module PcParts
       [tower, motherboard, cpu, cpu_cooler, gpu, memory, storage, power_supply]
     end
 
+    def missing_parts
+      self.instance_variables.each do |iv|
+        iv = iv.to_s.gsub('@','')
+        unless self.send(iv)
+          puts "MISSING #{iv.gsub('_', ' ').upcase}!"
+        end
+      end
+      return nil
+    end
+
     def total_price
       sum = 0
       parts.each do |part|
@@ -37,4 +47,4 @@ module PcParts
 end
 
 comp = PcParts::Computer.new("bryes pc", tower: PcParts::Tower.new(name: "hello"))
-p comp.total_price
+puts comp.missing_parts

@@ -120,8 +120,16 @@ module PcParts
   end
 
   describe "#total_price" do
+    let(:computer) {Computer.new(name: "test computer")}
+
+    before do
+      computer.cpu = Cpu.new(price: 100)
+      computer.motherboard = Motherboard.new(price: 100) 
+      computer.tower = Tower.new(price: 100) 
+    end
+
     it "returns the total price of all parts" do
-      expect(compter.total_price).to eq(100)
+      expect(computer.total_price).to eq(300)
     end
   end
 end
